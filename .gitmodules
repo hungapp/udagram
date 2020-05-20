@@ -1,0 +1,9 @@
+[submodule "udagram-frontend"]
+	path = udagram-frontend
+	url = git@github.com:hungapp/udagram-frontend.git
+[submodule "udagram-api-user"]
+	path = udagram-api-user
+	url = git@github.com:hungapp/udagram-api-user.git
+[submodule "udagram-api-feed"]
+	path = udagram-api-feed
+	url = git@github.com:hungapp/udagram-api-feed.git
