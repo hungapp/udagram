@@ -3,17 +3,18 @@ version: '3'
 services:
   reverse-proxy:
     build: ./reverse-proxy
+    image: ${DOCKER_USERNAME}/reverse-proxy
     ports:
       - '8080:8080'
   frontend:
     build: ./udagram-frontend
+    image: ${DOCKER_USERNAME}/udagram-frontend
     ports:
       - '8100:8100'
+
   api-user:
     build: ./udagram-api-user
-    env_file:
-      - .env
+    image: ${DOCKER_USERNAME}/udagram-api-user
   api-feed:
     build: ./udagram-api-feed
-    env_file:
-      - .env
+    image: ${DOCKER_USERNAME}/udagram-api-feed
