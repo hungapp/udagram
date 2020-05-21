@@ -1,26 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reverse-proxy-deployment
-  labels:
-    service: reverse-proxy
+  name: api-feed-deployment
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
-      service: reverse-proxy
+      pod: api-feed
 
   template:
     metadata:
       labels:
-        service: reverse-proxy
+        pod: api-feed
     spec:
       containers:
         # containers to run in the Pods
-        - name: reverse-proxy
-          image: hungapp/reverse-proxy
+        - name: api-feed
+          image: hungapp/udagram-api-feed
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 8080 #informational
       restartPolicy: Always
