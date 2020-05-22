@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: reverse-proxy
 spec:
+  type: LoadBalancer
   selector:
     service: reverse-proxy
   ports:
