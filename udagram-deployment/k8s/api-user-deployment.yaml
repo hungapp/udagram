@@ -19,12 +19,19 @@ spec:
         - name: api-user
           image: hungapp/udagram-api-user
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '1024Mi'
+              cpu: '500m'
           env:
-            - name: AWS_BUCKET
+            - name: AWS_MEDIA_BUCKET
               valueFrom:
                 configMapKeyRef:
                   name: env-config
-                  key: AWS_BUCKET
+                  key: AWS_MEDIA_BUCKET
             - name: AWS_REGION
               valueFrom:
                 configMapKeyRef:
