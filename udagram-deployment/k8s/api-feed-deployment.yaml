@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-feed-deployment
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      pod: api-feed
+
+  template:
+    metadata:
+      labels:
+        pod: api-feed
+    spec:
+      containers:
+        # containers to run in the Pods
+        - name: api-feed
+          image: hungapp/udagram-api-feed
+          imagePullPolicy: Always
+          env:
+            - name: AWS_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: AWS_BUCKET
+            - name: AWS_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: AWS_REGION
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: POSTGRES_HOST
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: POSTGRES_DATABASE
+
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: env-secret
+                  key: JWT_SECRET
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: env-secret
+                  key: POSTGRES_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: env-secret
+                  key: POSTGRES_PASSWORD
+      restartPolicy: Always
