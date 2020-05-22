@@ -1,6 +1,6 @@
 ## Build
 # Use NodeJS base image
-FROM node:13
+FROM node:12.6.0
 # Create app directory
 WORKDIR /usr/src/app
 # Install app dependencies
