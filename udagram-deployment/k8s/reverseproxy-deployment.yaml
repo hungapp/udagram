@@ -1,11 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reverse-proxy-deployment
-  labels:
-    service: reverse-proxy
+  name: reverse-proxy
+
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
