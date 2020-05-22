@@ -21,6 +21,13 @@ spec:
         - name: reverse-proxy
           image: hungapp/reverse-proxy
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '1024Mi'
+              cpu: '500m'
           ports:
             - containerPort: 8080
       restartPolicy: Always

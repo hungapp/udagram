@@ -19,4 +19,4 @@ COPY . .
 EXPOSE 8100
 
 # Define the Docker image's behavior at runtime
-CMD ["ionic", "serve", "--external"]
+CMD ["ionic", "serve", "--external", "--host", "0.0.0.0", "--disableHostCheck", "true"]
