@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: reverse-proxy-svc
 spec:
-  type: LoadBalancer
   selector:
     service: reverse-proxy
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 8080

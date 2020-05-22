@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: frontend
+  type: LoadBalancer
   ports:
     - port: 8100 # targets TCP port on any Pod with the app: frontend label; targetPort is the port the container accepts traffic on; port is the abstracted Service port
       protocol: TCP
