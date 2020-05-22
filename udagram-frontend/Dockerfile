@@ -14,7 +14,4 @@ RUN npm ci
 # Bundle app source
 COPY . .
 RUN ionic build
-
-
-#COPY www /usr/share/nginx/html
 RUN cp -r www /usr/share/nginx/html
