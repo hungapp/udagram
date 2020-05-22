@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              memory: '64Mi'
+              memory: '400Mi'
               cpu: '250m'
             limits:
               memory: '1024Mi'
@@ -50,17 +50,17 @@ spec:
 
             - name: JWT_SECRET
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: env-secret
                   key: JWT_SECRET
             - name: POSTGRES_USERNAME
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: env-secret
                   key: POSTGRES_USERNAME
             - name: POSTGRES_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: env-secret
                   key: POSTGRES_PASSWORD
       restartPolicy: Always

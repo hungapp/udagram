@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-user-deployment
+  name: api-user
 spec:
   replicas: 1
 
@@ -50,17 +50,17 @@ spec:
 
             - name: JWT_SECRET
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: env-secret
                   key: JWT_SECRET
             - name: POSTGRES_USERNAME
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: env-secret
                   key: POSTGRES_USERNAME
             - name: POSTGRES_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: env-secret
                   key: POSTGRES_PASSWORD
 
