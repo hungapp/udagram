@@ -1,6 +1,7 @@
-# deployment
+# docker-compose
 
-Tasks
+## Tasks
+
 Setup Docker Environment
 You'll need to install docker https://docs.docker.com/install/. Open a new terminal within the project directory and run:
 

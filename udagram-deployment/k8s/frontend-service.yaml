@@ -7,4 +7,4 @@ spec:
     service: frontend
   type: LoadBalancer
   ports:
-    - port: 8100
+    - port: 80
